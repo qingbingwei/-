@@ -1,0 +1,10 @@
+﻿  FileName.cpp
+D:\VS_数据结构\线性表_顺序表\FileName.cpp(65,24): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\VS_数据结构\线性表_顺序表\FileName.cpp(59,9): message : 在编译 类 模板 成员函数“int ArrayList<int>::FindEle(ArrayList<int> *,T)”时
+          with
+          [
+              T=int
+          ]
+D:\VS_数据结构\线性表_顺序表\FileName.cpp(156,39): message : 请参阅 "main" 中对 "ArrayList<int>::FindEle" 的第一个引用
+D:\VS_数据结构\线性表_顺序表\FileName.cpp(147,20): message : 查看对正在编译的 类 模板 实例化“ArrayList<int>”的引用
+  线性表_顺序表.vcxproj -> D:\VS_数据结构\线性表_顺序表\x64\Debug\线性表_顺序表.exe
