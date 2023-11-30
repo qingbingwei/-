@@ -68,12 +68,14 @@ public:
 			cout << x << "出队" << endl;
 		}
 	}
-	void m_empty()
+	bool m_empty()
 	{
 		if (head->next == nullptr)
 		{
 			cout << "队空" << endl;
+			return true;
 		}
+		return false;
 	}
 public:
 	q_node<T>* head;//指向头节点的指针
