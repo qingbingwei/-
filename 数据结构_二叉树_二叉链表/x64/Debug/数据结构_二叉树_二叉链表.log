@@ -1,2 +1,3 @@
 ﻿  FileName.cpp
+D:\VS_数据结构\数据结构_二叉树_二叉链表\FileName.cpp(82): warning C4715: “Link_queue<Binary_Tree_Node<char> *>::Del_queue”: 不是所有的控件路径都返回值
   数据结构_二叉树_二叉链表.vcxproj -> D:\VS_数据结构\数据结构_二叉树_二叉链表\x64\Debug\数据结构_二叉树_二叉链表.exe

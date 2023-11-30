@@ -38,13 +38,47 @@ public:
         }
         return false;
     }
-    void En_queue()
+    void En_queue(T k)
     {
+        q_Node<T>* s = new q_Node<T>;
+        if (s == nullptr)
+        {
+            cout << "开辟失败" << endl;
 
+        }
+        else
+        {
+            //新节点插入队尾
+            s->data = k;
+            s->next = nullptr;
+            rear->next = s;
+            rear = s;
+        }
     }
-    void Del_queue()
+    T Del_queue()
     {
-
+        //出队时需要注意是否是首元节点出队
+        T x(0);//保存出队元素
+        //判空
+        //1.head->next == nullptr
+        //2.head == rear
+        if (m_Empty())
+        {
+            cout << "队空" << endl;
+        }
+        else
+        {
+            q_Node<T>* p = head->next;
+            x = head->next->data;
+            head->next = head->next->next;
+            if (head->next == nullptr)//删除唯一节点时避免队尾指针成为野指针
+            {
+                rear = head;
+            }
+            delete p;
+            p = nullptr;
+            return x;
+        }
     }
 };
 template<class T>
@@ -127,23 +161,85 @@ public:
     //层次遍历--广度优先遍历
     void Level_Order()
     {
-
+        Binary_Tree_Node<T>* x = nullptr;
+        Link_queue<Binary_Tree_Node<T>*> m_queue;
+        //判断树非空
+        if (root == nullptr)
+        {
+            cout << "树空" << endl;
+            return;
+        }
+        //根节点入队
+        m_queue.En_queue(root);//入队数据与入队节点不同
+        while (!m_queue.m_Empty())
+        {
+            x = m_queue.Del_queue();
+            cout << x->data << ' ';
+            if (x->left != nullptr)
+            {
+                m_queue.En_queue(x->left);
+            }
+            if (x->right != nullptr)
+            {
+                m_queue.En_queue(x->right);
+            }
+        }
     }
     //深度优先遍历(均以递归实现)
     //先序遍历
-    void pre_Order()
+    void pre_Order(Binary_Tree_Node<T>* ro)
     {
-
+        //出口，ro == nullptr
+        //1.输出根节点数据
+        //2.判断根左非空，递归调用，传入ro->left
+        //3.判断根右非空，递归调用，传入ro->right
+        if (ro == nullptr)
+        {
+            return;
+        }
+        cout << ro->data << ' ';
+        if (ro->left != nullptr)
+        {
+            pre_Order(ro->left);
+        }
+        if (ro->right != nullptr)
+        {
+            pre_Order(ro->right);
+        }
     }
-    //中序遍历
-    void mid_Order()
+    //中序遍历（改变输出根节点数据顺序）
+    void mid_Order(Binary_Tree_Node<T>* ro)
     {
-
+        if (ro == nullptr)
+        {
+            return;
+        }
+        if (ro->left != nullptr)
+        {
+            mid_Order(ro->left);
+        }
+        cout << ro->data << ' ';
+        if (ro->right != nullptr)
+        {
+            mid_Order(ro->right);
+        }
     }
-    //后序遍历
-    void last_Order()
+    //后序遍历（改变输出根节点数据顺序）
+    void last_Order(Binary_Tree_Node<T>* ro)
     {
-
+        if (ro == nullptr)
+        {
+            return;
+        }
+        if (ro->left != nullptr)
+        {
+            last_Order(ro->left);
+        }
+        if (ro->right != nullptr)
+        {
+            last_Order(ro->right);
+        }
+        cout << ro->data << ' ';
     }
 public:
     //根节点
@@ -151,11 +247,26 @@ public:
 };
 int main()
 {
-    Binary_Tree<int> tree(100);
-    tree.Left_Insert(15, 100);
+    Binary_Tree<char> tree('A');
+    /*tree.Left_Insert(15, 100);
     tree.Left_Insert(19, 15);
     cout << tree.root->data << endl;
     cout << tree.root->left->data << endl;
-    cout << tree.root->left->left->data << endl;
+    cout << tree.root->left->left->data << endl;*/
+    tree.Left_Insert('B', 'A');
+    tree.Right_Insert('C', 'B');
+    tree.Left_Insert('D', 'C');
+    tree.Right_Insert('E', 'A');
+    tree.Right_Insert('F', 'E');
+    tree.Left_Insert('G', 'F');
+    tree.Right_Insert('K', 'G');
+    tree.Left_Insert('H', 'G');
+    tree.Level_Order();
+    cout << endl;
+    tree.pre_Order(tree.root);
+    cout << endl;
+    tree.mid_Order(tree.root);
+    cout << endl;
+    tree.last_Order(tree.root);
     return 0;
 }
