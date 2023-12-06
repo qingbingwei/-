@@ -1,3 +1,6 @@
 ﻿  FileName.cpp
-D:\VS_数据结构\数据结构_二叉树_二叉链表\FileName.cpp(82): warning C4715: “Link_queue<Binary_Tree_Node<char> *>::Del_queue”: 不是所有的控件路径都返回值
+D:\VS_数据结构\数据结构_二叉树_二叉链表\FileName.cpp(511): warning C4715: “Binary_Tree<char>::Find_mid_pre”: 不是所有的控件路径都返回值
+D:\VS_数据结构\数据结构_二叉树_二叉链表\FileName.cpp(151): warning C4715: “Link_queue<Binary_Tree_Node<char> *>::Del_queue”: 不是所有的控件路径都返回值
+D:\VS_数据结构\数据结构_二叉树_二叉链表\FileName.cpp(53): warning C4715: “m_stack<Binary_Tree_Node<char> *>::m_pop”: 不是所有的控件路径都返回值
+D:\VS_数据结构\数据结构_二叉树_二叉链表\FileName.cpp(533): warning C4715: “Binary_Tree<char>::Find_mid_last”: 不是所有的控件路径都返回值
   数据结构_二叉树_二叉链表.vcxproj -> D:\VS_数据结构\数据结构_二叉树_二叉链表\x64\Debug\数据结构_二叉树_二叉链表.exe
